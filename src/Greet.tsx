@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Greet() {
-  return (
-    <div>Hello, world!</div>
-  )
+type GreetProps = {
+  name?: string;
+};
+
+export default function Greet({ name = "John" }: GreetProps) {
+  return <div>{`Hello ${name}`}</div>;
 }
