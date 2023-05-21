@@ -5,5 +5,10 @@ type GreetProps = {
 };
 
 export default function Greet({ name = "John" }: GreetProps) {
-  return <div>{`Hello ${name}`}</div>;
+  return (
+    <div>
+      {`Hello ${name}`}
+      <button>Submit</button>
+    </div>
+  );
 }

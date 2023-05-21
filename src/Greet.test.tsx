@@ -13,4 +13,10 @@ describe("greet", () => {
     const greeting = screen.getByText("Hello Jurek");
     expect(greeting).toBeInTheDocument();
   });
+
+  test("button renders correcly", () => {
+    render(<Greet />);
+    const buttonElement = screen.getByRole("button");
+    expect(buttonElement).toBeInTheDocument();
+  });
 });
