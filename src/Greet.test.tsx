@@ -19,4 +19,12 @@ describe("greet", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
   });
+
+  test("header renders correctly", () => {
+    render(<Greet />);
+    const headerElement = screen.getByRole("heading", {
+      name: "Greeting form",
+    });
+    expect(headerElement).toBeInTheDocument();
+  });
 });
