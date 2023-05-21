@@ -34,8 +34,11 @@ describe("greet", () => {
 
   test("button renders correcly", () => {
     render(<Greet />);
-    const buttonElement = screen.getByRole("button");
+    const buttonElement = screen.getByRole("button", { name: "Submit" });
     expect(buttonElement).toBeInTheDocument();
+
+    const buttonElements = screen.getAllByRole("button");
+    expect(buttonElements).toHaveLength(2)
   });
 
   test("header renders correctly", () => {

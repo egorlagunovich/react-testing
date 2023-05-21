@@ -22,6 +22,7 @@ export default function Greet({ name = "John" }: GreetProps) {
       <span title="close">X</span>
       {`Hello ${name}`}
       <button>Submit</button>
+      <button>Close</button>
     </div>
   );
 }
