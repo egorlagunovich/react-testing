@@ -6,6 +6,24 @@ describe("greet", () => {
     render(<Greet />);
     const greeting = screen.getByText("Hello John");
     expect(greeting).toBeInTheDocument();
+
+    const inputElement = screen.getByPlaceholderText("name");
+    expect(inputElement).toBeInTheDocument();
+
+    const spanElement = screen.getByTitle("close");
+    expect(spanElement).toBeInTheDocument();
+
+    const inputElement1 = screen.getByLabelText("Ok");
+    expect(inputElement1).toBeInTheDocument();
+
+    const inputElement2 = screen.getByDisplayValue("haha");
+    expect(inputElement2).toBeInTheDocument();
+
+    const imgElement = screen.getByAltText("nothing");
+    expect(imgElement).toBeInTheDocument();
+
+    const divElement = screen.getByTestId("23");
+    expect(divElement).toBeInTheDocument();
   });
 
   test("greet name renders correctly", () => {
