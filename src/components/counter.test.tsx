@@ -11,7 +11,9 @@ describe("counter", () => {
 
   test("button render", () => {
     render(<Counter />);
-    const buttonElement = screen.getByRole("button");
+    const buttonElement = screen.getByRole("button", {
+      name: "Increase",
+    });
     expect(buttonElement).toBeInTheDocument();
 
     const count = screen.getByRole("heading");
@@ -20,9 +22,24 @@ describe("counter", () => {
 
   test("after 1 click", async () => {
     render(<Counter />);
-    const buttonElement = screen.getByRole("button");
+    const buttonElement = screen.getByRole("button", {
+      name: "Increase",
+    });
     await user.click(buttonElement);
     const count = screen.getByRole("heading");
     expect(count).toHaveTextContent("1");
+  });
+
+  test("after adding 10", async () => {
+    render(<Counter />);
+    const inputElement = screen.getByRole("spinbutton");
+    await user.type(inputElement, "10");
+    expect(inputElement).toHaveValue(10);
+    const buttonElement = screen.getByRole("button", {
+      name: "Add",
+    });
+    await user.click(buttonElement);
+    const count = screen.getByRole("heading");
+    expect(count).toHaveTextContent("10");
   });
 });
