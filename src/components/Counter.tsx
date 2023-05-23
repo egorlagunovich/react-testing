@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-export default function Counter() {
+type CounterProps = {
+  clickHandler: () => void;
+};
+
+export default function Counter({ clickHandler }: CounterProps) {
   const [count, setCount] = useState<number>(0);
   const [countValue, setCountValue] = useState<number>(0);
   const increaseCount = () => {
@@ -22,6 +26,7 @@ export default function Counter() {
       >
         Add
       </button>
+      <button onClick={clickHandler}>Mocking</button>
     </div>
   );
 }
